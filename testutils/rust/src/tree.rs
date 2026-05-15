@@ -90,9 +90,7 @@ struct BinaryTreeVisitor;
 
 impl BinaryTreeVisitor {
     fn from_level_order(nodes: &[TreeLink]) -> TreeLink {
-        let Some(root) = nodes.first().and_then(|node| node.as_ref()).cloned() else {
-            return None;
-        };
+        let root = nodes.first()?.as_ref()?.clone();
 
         let (mut parent_index, mut child_index) = (0, 1);
 
